@@ -1,1 +1,8 @@
-<h1>Social Network</h1>
+
+
+<div class="container">
+    $if session['user'] == 'none':
+        <h1>Hello Network</h1>
+    $else:
+        <h1>Hello $session['user']['name']</h1>
+</div>

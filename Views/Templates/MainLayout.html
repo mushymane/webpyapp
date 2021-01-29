@@ -1,5 +1,6 @@
 $def with (page)
-$var css: static/css/bootstrap.min.css static/scss/bootstrap-material-design.min.scss
+$var css: static/css/bootstrap.min.css static/scss/bootstrap-material-design.scss
+$var js: static/js/jquery-3.5.1.min.js static/js/bootstrap.min.js static/js/ripples.js static/js/bootstrapMaterialDesign.js static/js/scripty.js
 
 <html lang="en">
 <head>
@@ -12,7 +13,30 @@ $var css: static/css/bootstrap.min.css static/scss/bootstrap-material-design.min
 </head>
 <body>
     <div id="app">
+        <div class="navbar navbar-info navbar-fixed-top">
+            <div class="navbar header">
+                <a class="navbar-brand">Social Network</a>
+            </div>
+
+            <ul class="nav navbar-nav">
+                <li><a class="waves-effect" href="/">Home Feed<div class="ripple-container"></div></a></li>
+                <li><a class="/discover">Discover<div class="ripple-container"></div></a></li>
+                <li><a class="/profile">Profile<div class="ripple-container"></div></a></li>
+                <li><a class="/Settings">Settings<div class="ripple-container"></div></a></li>
+            </ul>
+
+            <div class="pull-right">
+                <a href="/login" class="btn btn-link waves-effect">Login</a>&nbsp;
+                <a href="/register" class="btn btn-raised btn-default waves-effect">Register</a>&nbsp; &nbsp;
+            </div>
+        </div>
+        <br /><br /><br />
         $:page
     </div>
+
+    $if self.js:
+        $for script in self.js.split():
+            <script src="$script"></script>
+
 </body>
 </html>
